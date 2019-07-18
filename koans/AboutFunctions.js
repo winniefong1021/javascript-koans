@@ -101,12 +101,7 @@ describe("About Functions", function () {
     expect(add(1, 2)).toBe(3);
 
     var multiply = function (a, b) {
-      // An internal comment
       return a * b;
     };
-    // expect(multiply.toString()).toBe("function(a, b) {
-    //   // An internal comment
-    //   return a * b;
-    //   }");
   });
 });

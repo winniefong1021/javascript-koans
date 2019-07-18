@@ -42,7 +42,6 @@ describe("About inheritance", function () {
   });
 });
 
-// http://javascript.crockford.com/prototypal.html
 Object.prototype.beget = function () {
   function F() { }
   F.prototype = this;
@@ -58,12 +57,7 @@ function Gonzo(age, hobby, trick) {
   }
 }
 
-// no longer need to call the Muppet (base type) constructor
 Gonzo.prototype = Muppet.prototype.beget();
-// note: if you're wondering how this line affects the below tests, the answer is that it doesn't.
-// however, it does do something interesting -- it makes this work:
-// var g = new Gonzo(...);
-// g instanceOf Muppet // true
 
 describe("About Crockford's inheritance improvement", function () {
   beforeEach(function () {

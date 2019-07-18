@@ -1,4 +1,4 @@
-var _; // globals
+var _;
 
 describe("About Applying What We Have Learnt", function () {
   var products;
@@ -12,8 +12,6 @@ describe("About Applying What We Have Learnt", function () {
       { name: "Taste Of Athens", ingredients: ["spinach", "kalamata olives", "sesame seeds"], containsNuts: true }
     ];
   });
-
-  /*********************************************************************************/
 
   it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (imperative)", function () {
     var i, j, hasMushrooms, productsICanEat = [];
@@ -36,7 +34,6 @@ describe("About Applying What We Have Learnt", function () {
   it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)", function () {
     var productsICanEat = [];
 
-    /* solve using filter() & all() / any() */
     _(products).filter(function (el) {
       if (!el.ingredients.includes("mushrooms") && el.containsNuts === false) {
         productsICanEat.push(el);
@@ -45,8 +42,6 @@ describe("About Applying What We Have Learnt", function () {
 
     expect(productsICanEat.length).toBe(1);
   });
-
-  /*********************************************************************************/
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (imperative)", function () {
     var sum = 0;
@@ -66,7 +61,7 @@ describe("About Applying What We Have Learnt", function () {
     //     if (num % 3 === 0 || num % 5 === 0) {
     //       return total + num;
     //     }
-    //   });    /* try chaining range() and reduce() */
+    //   });
 
     var sum = _.range(1, 1000)
       .filter(function (num) {
@@ -95,7 +90,6 @@ describe("About Applying What We Have Learnt", function () {
   it("should count the ingredient occurrence (functional)", function () {
     var ingredientCount = { "{ingredient name}": 0 };
 
-    /* chain() together map(), flatten() and reduce() */
     _(products).map(function (el) {
       el.ingredients.map(function (e) {
         ingredientCount[e] = (ingredientCount[e] || 0) + 1;
@@ -104,28 +98,4 @@ describe("About Applying What We Have Learnt", function () {
 
     expect(ingredientCount['mushrooms']).toBe(2);
   });
-
-  /*********************************************************************************/
-  /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
-  it("should find the largest prime factor of a composite number", function () {
-
-  });
-
-  it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-
-  });
-
-  it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-
-  });
-
-  it("should find the difference between the sum of the squares and the square of the sums", function () {
-
-  });
-
-  it("should find the 10001st prime", function () {
-
-  });
-  */
 });
